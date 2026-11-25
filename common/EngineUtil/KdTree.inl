@@ -366,7 +366,7 @@ float TKdTree< T >::CalcMinSAH( SKdTreeSplit::SPLIT_AXIS Axis, std::vector< SKdT
 template< class T >
 float TKdTree< T >::CalcSAH( int nLeft, int nCenter, int nRight, float fLeftPoint, float fRightPoint)
 {
-	return 220 + 30 * std::min( fLeftPoint * ( nLeft + nCenter ) + fRightPoint * nRight, fLeftPoint * nLeft + fRightPoint * ( nRight + nCenter ) );
+	return 220 + 30 * (std::min)( fLeftPoint * ( nLeft + nCenter ) + fRightPoint * nRight, fLeftPoint * nLeft + fRightPoint * ( nRight + nCenter ) );
 }
 
 template< class T >

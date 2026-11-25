@@ -237,7 +237,7 @@ public:
 	CMemoryShuffleDataType(const CMemoryShuffleDataType<TDATA>& pMsdt);
 	virtual ~CMemoryShuffleDataType();
 
-	operator TDATA const ();
+	operator TDATA const () const;
 // 	operator TDATA* const ();	// not support
 // 	operator TDATA& const ();	// not support
 
@@ -271,7 +271,7 @@ private:
 	CMemoryShuffleAllocator<TDATA>& GetAllocator();
 
 private:
-	CMemoryShuffleAllocator<TDATA> m_Allocator;
+	mutable CMemoryShuffleAllocator<TDATA> m_Allocator;
 
 };
 

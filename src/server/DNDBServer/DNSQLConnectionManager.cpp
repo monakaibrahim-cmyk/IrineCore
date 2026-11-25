@@ -49,7 +49,8 @@ bool CDNSQLConnectionManager::CreateMembership()
 			int iRet = pDB->QueryGetDatabaseVersion( &Version );
 			if( iRet == ERROR_NONE )
 			{
-				std::wcout << L"DBName:" << Version.wszName << L" Version:" << Version.iVersion << std::endl;
+				wprintf(L"DBName:%s Version:%d\n", Version.wszName, Version.iVersion);
+				fflush(stdout);
 				g_Log.Log(LogType::_FILELOG, L"QueryGetDatabaseVersion Success!! Ip:%S Port:%d DBName:%s DBID:%s Version:%s,%d\r\n", g_Config.MembershipDB.szIP, g_Config.MembershipDB.nPort, g_Config.MembershipDB.wszDBName, g_Config.MembershipDB.wszDBID, Version.wszName, Version.iVersion );
 			}
 			else
@@ -95,7 +96,8 @@ bool CDNSQLConnectionManager::CreateWorld()
 				int iRet = pDB->QueryGetDatabaseVersion( &Version );
 				if( iRet == ERROR_NONE )
 				{
-					std::wcout << L"WorldID[" << j << L"] " << L"DBName:" << Version.wszName << L" Version:" << Version.iVersion << std::endl;
+					wprintf(L"WorldID[%d] DBName:%s Version:%d\n", j, Version.wszName, Version.iVersion);
+					fflush(stdout);
 					g_Log.Log(LogType::_FILELOG, L"QueryGetDatabaseVersion Success!! WorldDB Ip:%S Port:%d DBName:%s, DBID:%s Version:%s,%d\r\n", g_Config.WorldDB[j].szIP, g_Config.WorldDB[j].nPort, g_Config.WorldDB[j].wszDBName, g_Config.WorldDB[j].wszDBID, Version.wszName, Version.iVersion );
 				}
 				else

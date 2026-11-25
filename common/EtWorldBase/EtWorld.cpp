@@ -46,7 +46,9 @@ bool CEtWorld::Initialize( const char *szWorldFolder, const char *szGridName )
 	if( strcmp( Header.szStr, s_szWorldHeaderString ) != NULL ) return false;
 	if( Header.nVersion != s_nWorldVersion ) return false;
 
-	_ASSERT( m_pGrid == NULL );
+	if( m_pGrid != NULL ) {
+		Destroy();
+	}
 	m_pGrid = AllocGrid();
 	if( szGridName == NULL ) {
 		if( m_pGrid->Initialize( "Root", 0, 0, 0, 0, 0 ) == false ) {

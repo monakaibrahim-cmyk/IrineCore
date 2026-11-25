@@ -823,6 +823,7 @@ bool CDNGameDataManager::LoadMapInfo()
 					g_Log.Log(LogType::_FILELOG, L"[Map] Grid:%S does not existed \r\n", pMapInfo->szMapName[j] );
 					vFailMap.push_back(pMapInfo->szMapName[j]);
 				}
+				pCheckWorld->Destroy();
 			}
 #endif	// #if defined(_GAMESERVER)
 		}

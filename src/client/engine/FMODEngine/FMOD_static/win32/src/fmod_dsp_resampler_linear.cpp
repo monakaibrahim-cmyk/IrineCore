@@ -5,11 +5,13 @@
 
 #define OO4GIG (1.0f / 4294967296.0f)
 
+#ifdef FMOD_SUPPORT_SIMD
 extern "C"
 {
     void FMOD_Resampler_Linear_PCM16_Mono(float *out, int outlength, void *src, FMOD_UINT64P *position, FMOD_SINT64P *speed);
     void FMOD_Resampler_Linear_PCM16_Stereo(float *out, int outlength, void *src, FMOD_UINT64P *position, FMOD_SINT64P *speed);
 }
+#endif
 
 /*
 [
@@ -210,11 +212,13 @@ void FMOD_Resampler_Linear(float *out, int outlength, void *src, FMOD_SOUND_FORM
 
             if (channels == 1)
             {
+#ifdef FMOD_SUPPORT_SIMD
                 if (supportssimd)
                 {
                     FMOD_Resampler_Linear_PCM16_Mono(out, outlength, src, position, speed);
                 }
                 else
+#endif
                 {
                     float f;
                     float a, b, r1,r2,r3,r4;
@@ -273,11 +277,13 @@ void FMOD_Resampler_Linear(float *out, int outlength, void *src, FMOD_SOUND_FORM
             }
             else if (channels == 2)
             {
+#ifdef FMOD_SUPPORT_SIMD
                 if (supportssimd)
                 {
                     FMOD_Resampler_Linear_PCM16_Stereo(out, outlength, src, position, speed);
                 }
                 else
+#endif
                 {
                     float f;
                     float l_a,l_b, l_r1,l_r2,l_r3,l_r4;

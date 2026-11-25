@@ -283,7 +283,7 @@ public:
 			{
 //				if( TestLineToBox( Position, Direction, AABox, fDist ) == false ) {
 				EtVector3 vDiffPos = Position - ObjectBox.Center;
-				fDist = EtVec3Length( &vDiffPos ) + std::max( std::max( ObjectBox.Extent[0], ObjectBox.Extent[1] ), ObjectBox.Extent[2] );
+				fDist = EtVec3Length( &vDiffPos ) + (std::max)( (std::max)( ObjectBox.Extent[0], ObjectBox.Extent[1] ), ObjectBox.Extent[2] );
 //				}
 				fSize = ( ObjectBox.Extent[0] / 100.f ) * ( ObjectBox.Extent[1] / 100.f ) * ( ObjectBox.Extent[2] / 100.f );
 				if( fDist < fMinDist ) {

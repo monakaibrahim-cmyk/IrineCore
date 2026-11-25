@@ -731,7 +731,7 @@ inline void CMemoryShuffleDataType<TDATA>::SetAllocTickTerm(unsigned long pTickT
 // PRGM : B4nFter
 //*---------------------------------------------------------------
 /* export */ template<typename TDATA>
-inline CMemoryShuffleDataType<TDATA>::operator TDATA const ()
+inline CMemoryShuffleDataType<TDATA>::operator TDATA const () const
 {
 	TP_SYNCAUTO aSyncAuto(&m_Allocator);
 
